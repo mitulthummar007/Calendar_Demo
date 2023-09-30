@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <button id="scrollDownButton">Scroll Down</button>
+    <button id="scrollUpButton">Scroll Up</button>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+    <header>
+        <h1>calendar</h1>
+
+        <form action="/" method="get">
+            <input class="y-text" type="text" placeholder="search year" name="year">
+            <select class="monthSelect" name="month">
+                <option class="1" value="0">January</option>
+                <option class="2" value="1">February</option>
+                <option class="3" value="2">March</option>
+                <option class="4" value="3">April</option>
+                <option class="5" value="4">May</option>
+                <option class="6" value="5">June</option>
+                <option class="7" value="6">July</option>
+                <option class="8" value="7">August</option>
+                <option class="9" value="8">September</option>
+                <option class="10" value="9">October</option>
+                <option class="11" value="10">November</option>
+                <option class="12" value="11">December</option>
+            </select>
+            <button type="submit">search</button>   
+
+        </form>
+
+        <h2>year <%= year %>
+        </h2>
+    </header>
+    <div class="calendar-container">
+        <% for(let month=0;month < calendar.length;month++) { %>
+            <div class="today_button" aria-label="Today" role="button" id="todayButton">Today</div>
+            <div class="month-container" id="<%= months[month] %>">
+                <h3 style="text-align: center;">
+                    <%= months[month] %> - <%= year %>
+                </h3>
+                <div class="day-of-week">
+                    <span>Sun</span><span>Mon</span><span>Tue</span><span>
+                        Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+                <% for(let x=0;x < calendar[month].length;x++) { %>
+                    <div class="days">
+                        <% for(let y=0;y < calendar[month][x].length;y++) { %>
+
+                            <div class="date" id="2023-09-27">
+                                <div class="date-text">
+                                    <b>
+                                        <%= calendar[month][x][y] %>
+                                    </b>
+                                </div>
+                                <div class="note-text">
+                                    <textarea class="note-input" placeholder=""></textarea>
+                                    <!-- <button id="save-button" class="save-button">save</button> -->
+                                </div>
+                            </div>
+
+                            <% } %>
+                    </div>
+                    <% } %>
+            </div>
+            <% } %>
+    </div>
+    <script src="scrpt.js">
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+    <header>
+        <h1>calendar</h1>
+
+        <form action="/" method="get">
+            <input type="text" placeholder="search year" name="year">
+            <button type="submit">search</button>
+        </form>
+
+        <h2>year <%= year %>
+        </h2>
+    </header>
+    <div class="calendar-container">
+        <% for(let month=0;month < calendar.length;month++) { %>
+            <div class="dhx_cal_today_button" aria-label="Today" role="button" id="todayButton">Today</div>
+            <div class="month-container" id="<%= months[month] %>">
+                <h3 style="text-align: center;">
+                    <%= months[month] %> - <%= year %>
+                </h3>
+                <div class="day-of-week">
+                    <span>Sun</span><span>Mon</span><span>Tue</span><span>
+                        Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+                <% for(let x=0;x < calendar[month].length;x++) { %>
+                    <div class="days">
+                        <% for(let y=0;y < calendar[month][x].length;y++) { %>
+
+                            <div class="date" id="addbtn">
+                                <div id="<%=calendar[month][x][y] %>">
+                                   <b> <%= calendar[month][x][y] %></b>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                    <% } %>
+            </div>
+        <% } %>
+    </div>
+<script src="scrpt.js">
+
+</script>
+</body>
+
+</html> -->
